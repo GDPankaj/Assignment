@@ -84,7 +84,6 @@ public class CameraFollow : MonoBehaviour
         {
             Touch touch = Input.GetTouch(i);
 
-            // Check if the touch phase is Began or Moved
             if (touch.phase == TouchPhase.Began)
             {
                 currentTouchPosition = Camera.main.ScreenToViewportPoint(touch.position);
@@ -94,7 +93,6 @@ public class CameraFollow : MonoBehaviour
             {
                 newTouchPosition = Camera.main.ScreenToViewportPoint(touch.position);
 
-                // Only allow rotation if touch is on the right side of the screen
                 if (currentTouchPosition.x > 0.35f)
                 {
                     RotateCamera((newTouchPosition.x - currentTouchPosition.x) * 180f * Time.deltaTime);
